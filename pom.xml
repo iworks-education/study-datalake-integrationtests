@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.iwe</groupId>
+	<artifactId>study-datalake-integrationtests</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.intuit.karate</groupId>
+			<artifactId>karate-apache</artifactId>
+			<version>0.9.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.intuit.karate</groupId>
+			<artifactId>karate-junit5</artifactId>
+			<version>0.9.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-cognitoidp</artifactId>
+			<version>1.11.382</version>
+		</dependency>
+		<dependency>
+			<groupId>net.masterthought</groupId>
+			<artifactId>cucumber-reporting</artifactId>
+			<version>3.8.0</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<testResources>
+			<testResource>
+				<directory>src/test/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
