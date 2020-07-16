@@ -31,7 +31,7 @@ And request
 }
 """
 When method post
-Then status 503
+Then status 201
 
 * def studyTaskRegistered = response
 
