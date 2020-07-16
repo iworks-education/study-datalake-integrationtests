@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  pre_build:
+    commands:
+      - echo No Build Commands
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn clean test -DargLine="-Dkarate.env=dev"
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - packaged-template.yaml
+cache:
+  paths:
+    - '/root/.m2/**/*'
