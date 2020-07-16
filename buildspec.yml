@@ -14,9 +14,11 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-artifacts:
-  files:
-    - packaged-template.yaml
+reports:
+  SurefireReports:
+    files:
+      - '**/*'
+    base-directory: 'target/surefire-reports' # Location of the reports          
 cache:
   paths:
     - '/root/.m2/**/*'
