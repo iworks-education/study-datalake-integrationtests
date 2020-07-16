@@ -16,13 +16,9 @@ phases:
       - echo Build completed on `date`
 reports:
   CucumberReportsTests:
-    files:
-      - '**/*'
     base-directory: 'target/surefire-reports/src.test.java.com.iwe.test.study-datalake.json'
     file-format: CucumberJson
   CucumberReportsClasses:
-    files:
-      - '**/*'
     base-directory: 'target/surefire-reports/target.test-classes.com.iwe.test.study-datalake.json'  
     file-format: CucumberJson      
 cache:
