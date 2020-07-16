@@ -2,16 +2,18 @@ Feature: API used by the Shield agent team, responsible for managing Avengers re
 
 Background:
 * url endpoint
+* def cognito_conf = clientid + ',' + userpoolid + ',' + username + ',' + password
+
 
  * def getToken =
 """
-function() {
+function(cognito_conf) {
  var TokenGenerator = Java.type('com.iwe.authorization.TokenGenerator');
- var sg = new TokenGenerator();
+ var sg = new TokenGenerator(cognito_conf);
  return sg.getToken();
 }
 """
-* def token = call getToken
+* def token = call getToken cognito_conf
 
 Scenario: Creates a new Study Task and search by Tag
 
