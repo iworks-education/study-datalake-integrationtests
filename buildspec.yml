@@ -13,14 +13,7 @@ phases:
       - mvn clean test -DargLine="-Dkarate.env=dev"
   post_build:
     commands:
-      - echo Build completed on `date`
-reports:
-  CucumberReportsTests:
-    base-directory: 'target/surefire-reports/src.test.java.com.iwe.test.study-datalake.json'
-    file-format: CucumberJson
-  CucumberReportsClasses:
-    base-directory: 'target/surefire-reports/target.test-classes.com.iwe.test.study-datalake.json'  
-    file-format: CucumberJson      
+      - aws s3 sync target/cucumber-html-reports s3://tests-report-pipeline --acl public-read
 cache:
   paths:
     - '/root/.m2/**/*'
